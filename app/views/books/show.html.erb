@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class= "col-xs-3">
+      <h2>User info</h2> 
+      <!-- あとで編集いるかも -->
+     <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "m_e_others_471.jpg" ,format: 'm_e_others_471.jpg' %>
+
+      <h5>name</h5>
+      <%= @user.name %>
+
+      <h5>introduction</h5>
+      <%= @user.introduction %>
+     
+
+      <%= link_to"",edit_user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
+
+       <%= form_for(@book,  url: books_path) do |f| %>
+
+       <h2>New book</h2>
+       <h5>title</h5>
+        <%= f.text_field :title,class: "col-xs-12" %>
+
+       <h5>opinion</h5>
+       <%= f.text_field :body,class: "col-xs-12" %>
+
+       <nev>
+         <%= f.submit 'Create Book',class: "col-xs-12 btn btn-primary" %>
+       </nev>
+      <% end %>
+    </div>
+
+    <div class= "col-xs-9">
+      <h2>Book detail</h2>
+      <table class='table table-hover table-inverse'>
+        <tr>
+        	<td>
+        		 <%= link_to user_path(@book.user_id) do %>
+        		 <%= attachment_image_tag @book.user, :profile_image, :fill, 50, 50, fallback: "l_e_others_470.jpg",size:'50x50',format: 'l_e_others_470.jpg' %>
+        		 <nav>
+        		 	<%= @book.user.name %>
+        		 </nav>
+        		 <% end %>
+        	</td>
+        	 <td><%= link_to @book.title %></td>
+        	 <td><%= @book.body %></td>
+        	 <% if @book.user_id == current_user.id %>
+    		<td><%= link_to"edit", edit_book_path(@book.id),class:"btn-sm btn-success" %></td>
+    		<td><%= link_to "destroy", book_path(@book.id), class:"btn-sm btn-danger destroy(@book.id)", method: :delete,data: {confirm: "削除しますか？"} %></td>
+    		<% end %>
+        </tr>
+      </table>
+    </div>
