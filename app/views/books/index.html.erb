@@ -11,7 +11,7 @@
   <div class="row">
     <div class= "col-xs-3">
       <h2>User info</h2> 
-      <!-- あとで編集いるかも --><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "m_e_others_471.jpg" ,format: 'm_e_others_471.jpg' %><%= attachment_image_tag @user, :profile_image, :fill, 300, 300, format: 'jpg' %>
+      <!-- あとで編集いるかも --><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpg' %>
 
       <h5>name</h5>
       <%= @user.name %>
