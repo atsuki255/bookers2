@@ -24,7 +24,7 @@ class BooksController < ApplicationController
 
      else
     @books = Book.all
-    flash[:notice] = ' errors prohibited this obj from being saved:'
+    flash[:notice] = "errors prohibited this obj from being saved:"
     render "index"
     end
 
