@@ -5,12 +5,26 @@
       <!-- あとで編集いるかも -->
      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "m_e_others_471.jpg" ,format: 'm_e_others_471.jpg' %>
 
-      <h5>name</h5>
-      <%= @user.name %>
+    <table>
+    <tbody>
+      <tr></tr>
+      <tr> 
+      <th><h5>name</h5></th>
 
-      <h5>introduction</h5>
-      <%= @user.introduction %>
-     
+      <th><%= @user.name %></th>
+      </tr>
+
+      
+      <tr>
+      <th><h5>introduction</h5></th>
+      <th></th>
+      <th><%= @user.introduction %></th>
+      </tr>
+
+    </tbody>
+    </table>
+
+
 
       <%= link_to"",edit_user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
 
