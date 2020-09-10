@@ -27,6 +27,7 @@
 
       <%= link_to"",edit_user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench"%>
 
+
        <%= form_for(@book,  url: books_path) do |f| %>
 
        <h2>New book</h2>
@@ -39,6 +40,7 @@
        <nev>
          <%= f.submit 'Create Book',class: "col-xs-12 btn btn-primary" %>
        </nev>
+
       <% end %>
     </div>
 
@@ -57,8 +59,11 @@
         <tr>
           <td><%= attachment_image_tag user, :profile_image, :fill, 20, 20, fallback: "l_e_others_470.jpg",size:'20x20',format: 'l_e_others_470.jpg' %></td>          
           </td>
-          <th><%= user.name %><th>
-          <th><%= link_to"Show",user_path(user.id) %></th>
+          <td><%= user.name %><td>
+          <td><p>フォロー数 : <%= link_to user.followings.count, followings_path(user) %></p></td>
+          <td><p>フォロワー数 : <%= link_to user.followers.count, followers_path(user) %></p></td>
+          <td><%= render "relationships/follow_button", user: user %></td>
+          <td><%= link_to"Show",user_path(user.id) %></td>
         </tr>
         <% end %>
       </table>

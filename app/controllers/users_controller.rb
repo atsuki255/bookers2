@@ -13,21 +13,11 @@ class UsersController < ApplicationController
 
 	def show
 		@book = Book.new
-        @user = User.find(params[:id])
-        @books = @user.books
-
+    @user = User.find(params[:id])
+    @books = @user.books
     end
 
-    # def new
-    #     @user = User.new(user_params)
-    #     if @user.save
-    #     flash[:notice] = "You have updated user successfully."
-    #      redirect_to  user_path(current_user.id)#成功の場合
-    #     else
-    #     flash[:notice] = "errors prohibited this obj from being saved:"
-    #      render "users/sign_up"#失敗の場合
-    #     end
-    # end
+
 
     def edit
         @user = User.find(params[:id])

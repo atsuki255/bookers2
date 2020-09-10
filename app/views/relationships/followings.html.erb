@@ -1,0 +1,22 @@
+<div>
+	<h1>following</h1>
+	<table class='table table-hover table-inverse'>
+		<tr>
+          <th>image</th>
+          <th>name</th>
+          <th colspan="3"></th>
+        </tr>
+
+
+        <% @users.each do |user| %>
+
+        <tr>
+          <td><%= attachment_image_tag user, :profile_image, :fill, 20, 20, fallback: "l_e_others_470.jpg",size:'20x20',format: 'l_e_others_470.jpg' %></td>          
+          </td>
+          <td><%= user.name %><td>
+
+          <td><%= link_to 'Show', user, class: "user_#{user.id}" %></td>
+        </tr>
+        <% end %>
+	</table>
+</div>
