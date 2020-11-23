@@ -1,7 +1,6 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
-
   def create
     @book.favorites.create(user_id: current_user.id)
   end
@@ -12,8 +11,6 @@ class FavoritesController < ApplicationController
   end
 
   private
-
-
 
   def favorite_params
     params.require(:favorite).permit(:user_id, :book_id)
